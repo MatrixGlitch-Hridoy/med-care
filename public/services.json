@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "title": "Pediatrics",
+    "description": "Our pediatricians uses high-precision diagnostic methods and modern methods of treatment.",
+    "img": "https://i.ibb.co/q7CNqLH/Children-doctor-concept-Teddy-Bear-with-stethoscope-copy-space.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Therapist",
+    "description": "If you have any complaints about your state of health, start with our therapist and he will help you.",
+    "img": "https://i.ibb.co/BtfZvcf/Physical-therapist-room-hospital.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Laboratory",
+    "description": "In our laboratory, you can pass a wide range of tests that allow us to put the right diagnosis.",
+    "img": "https://i.ibb.co/CwqKFWt/scientist-lab-blood-sample-732x549-thumbnail.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Cardiology",
+    "description": "The timely detection of cardiovascular diseases allows them to be effectively treated.",
+    "img": "https://i.ibb.co/0mHxMZv/Healthcare-and-heart-problems-prevention-cardiology-concept-Cardiologist-or-general-practitioner-doc.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Surgery",
+    "description": "We have a wide range of highly qualified specialists in various fields of surgery.",
+    "img": "https://i.ibb.co/vPkMy0z/57253.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Neurology",
+    "description": "In our laboratory, you can pass a wide range of tests that allow us to put the right diagnosis.",
+    "img": "https://i.ibb.co/F3B7qmJ/image.jpg"
+  }
+]

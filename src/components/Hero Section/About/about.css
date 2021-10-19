@@ -1,0 +1,22 @@
+:root {
+  --blue: #0188df;
+  --black: #354046;
+}
+.about {
+  background: #eee;
+}
+
+.about .content .box {
+  margin: 3rem 0;
+}
+
+.about .content .box h3 {
+  font-size: 2rem;
+  color: var(--black);
+}
+
+.about .content .box p {
+  font-size: 1.2rem;
+  padding-left: 6rem;
+  color: #666;
+}
