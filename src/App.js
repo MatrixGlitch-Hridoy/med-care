@@ -8,6 +8,7 @@ import SingleService from "./components/Hero Section/Services/SingleService";
 import Login from "./components/Login/Login";
 import NotFound from "./components/NotFound/NotFound"
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           <Route exact path="/service/:id" component={SingleService}/>
           <PrivateRoute exact path="/appointment">
             <Appointment></Appointment>
+          </PrivateRoute>
+          <PrivateRoute exact path="/profile">
+            <Profile></Profile>
           </PrivateRoute>
           <Route path="*" component={NotFound}/>
         </Switch>

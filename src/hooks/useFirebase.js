@@ -1,39 +1,25 @@
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged,updateProfile, signOut, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../firebase/firebase.init";
 import { useHistory } from "react-router-dom";
 initializeAuthentication();
 const useFirebase = () => {
     const [user, setUser] = useState({});
+    const [isLoading, setIsLoading] = useState(true)
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const history = useHistory();
 
     //Sign In Using Google
     const signInUsingGoogle = ()=>{
+        setIsLoading(true);
         return signInWithPopup(auth, googleProvider)
-        // .then(res => {
-        //     setUser(res.user);
-        //     history.push('/');
-        // }).catch(err => console.log(err.message))
     }
 
     //Register Using Email and Password
-    const signUpWithEmailAndPassword = (username, email,password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((res) => {
-            setUser(res.user)
-            console.log(res.user);
-            updateProfile(auth.currentUser, {
-                displayName: username,
-            }).then(() => {
-                history.push('/');
-            })
-
-        }).catch((error) => {
-            const errorMessage = error.message;
-            console.log(errorMessage);
-          })
+    const signUpWithEmailAndPassword = (email,password) => {
+        setIsLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
     //Login in using email and password
@@ -58,11 +44,15 @@ const useFirebase = () => {
             if(user){
                 setUser(user)
             }
+            setIsLoading(false)
         })
     },[])
 
     return {
         user,
+        setUser,
+        isLoading,
+        setIsLoading,
         signInUsingGoogle,
         signUpWithEmailAndPassword,
         signInWithEmailPassword,

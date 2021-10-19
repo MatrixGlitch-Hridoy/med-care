@@ -35,13 +35,8 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#">
-                  Features
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="#">
-                  Pricing
+                <Link className="nav-link" to="/profile">
+                  Profile
                 </Link>
               </li>
               {user?.email && (
@@ -53,7 +48,7 @@ const Header = () => {
                 </Link>
               ) : (
                 <Link to="/login">
-                  <button className="btn btn-primary">Sign In</button>
+                  <button className="btn btn-primary ">Sign In</button>
                 </Link>
               )}
 

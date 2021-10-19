@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { BsGoogle } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-
+import { useHistory, useLocation } from "react-router-dom";
 
 const Register = () => {
-    const {signUpWithEmailAndPassword, signInUsingGoogle} = useAuth();
+    const {signUpWithEmailAndPassword, signInUsingGoogle,setIsLoading} = useAuth();
     const [username, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_url = location.state?.from || '/'
 
     const handleUsernameChange = (e) => {
         setUserName(e.target.value);
@@ -22,8 +25,22 @@ const Register = () => {
     const handleRegistration = (e) => {
         e.preventDefault();
         // console.log(username,email,password);
-        signUpWithEmailAndPassword(username,email,password);
+        signUpWithEmailAndPassword(email,password)
+        .then(res=>{
+          console.log(res);
+          history.push(redirect_url)
+        }).catch((error) => {
+          console.log(error.message);  
+        }).finally(()=>setIsLoading(false))
     }
+    const handleSignInWithGoogle = (e) => {
+      signInUsingGoogle()
+      .then(result=>{
+          history.push(redirect_url);
+      }).catch((error) => {
+          console.log(error.message);  
+        }).finally(()=>setIsLoading(false))
+  }
     
     return (
         <div>
@@ -91,7 +108,7 @@ const Register = () => {
                     <button
                       class="btn btn-lg btn-block btn-primary"
                       style={{ backgroundColor: "#dd4b39" }}
-                      onClick={signInUsingGoogle}
+                      onClick={handleSignInWithGoogle}
                     >
                       <BsGoogle /> Sign in with google
                     </button>
